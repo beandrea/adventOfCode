@@ -6,13 +6,15 @@ digitMap = { 'oneight' : '18', 'twone' : '21', 'threeight' : '38', 'fiveight': '
 def extract(line: str) -> int:
     for digit in digitMap:
         line = line.replace(digit, digitMap[digit])
+    
     digits = [s for s in line if s.isnumeric()]
     return int(digits[0] + digits[-1])
 
 def main() -> None:
-    file = open('/Users/home/Desktop/python/adventOfCode/adventOfCode/day1/part1/nums.txt', 'r')
-    digits = [extract(l) for l in file.split()]
+    file = open('/Users/home/Desktop/python/adventOfCode/adventOfCode/day1/part1/nums.txt')
+    digits = [extract(l) for l in file.read().split()]
     print(sum(digits))
+    file.close()
 
 if __name__ == "__main__":
     main()
