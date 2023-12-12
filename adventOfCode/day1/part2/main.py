@@ -12,11 +12,7 @@ def extract(line: str) -> int:
 
 def main() -> None:
     file = open('/Users/home/Desktop/python/adventOfCode/adventOfCode/day1/part2/nums.txt')
-    digits = []
-
-    for l in file.read().split():
-        digits.append(extract(l))
-
+    digits = [extract(l) for l in file.read().split()]
     print(sum(digits))
     file.close()
 
